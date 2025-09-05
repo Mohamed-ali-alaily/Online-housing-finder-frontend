@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'online-housing-finder';
+  title = 'online-housing-finder';   // ✅ كده الاختبار هيمشي
 }
+

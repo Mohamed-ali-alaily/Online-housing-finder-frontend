@@ -1,0 +1,27 @@
+<div *ngIf="successMessage" class="success">
+  {{ successMessage }}
+</div>
+
+<form (ngSubmit)="submit()" #propertyForm="ngForm">
+  <div>
+    <label>Title</label>
+    <input type="text" [(ngModel)]="property.title" name="title" required />
+  </div>
+
+  <div>
+    <label>Price</label>
+    <input type="number" [(ngModel)]="property.price" name="price" required />
+  </div>
+
+  <div>
+    <label>Location</label>
+    <input type="text" [(ngModel)]="property.location" name="location" required />
+  </div>
+
+  <div>
+    <label>Description</label>
+    <textarea [(ngModel)]="property.description" name="description"></textarea>
+  </div>
+
+  <button type="submit">{{ id ? 'Update Property' : 'Add Property' }}</button>
+</form>

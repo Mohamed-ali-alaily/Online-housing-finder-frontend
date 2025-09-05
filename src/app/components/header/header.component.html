@@ -2,10 +2,16 @@
   <nav>
     <h1>🏠 Online Housing Finder</h1>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/features" routerLinkActive="active">Features</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
     </ul>
+
+    <div class="nav-links">
+      |
+      <a routerLink="/properties" routerLinkActive="active">Properties</a> |
+      <a routerLink="/add-property" routerLinkActive="active">Add Property</a>
+    </div>
   </nav>
 </header>

@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Components
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PropertyFormComponent } from './components/property-form/property-form.component';
+import { PropertyListComponent } from './components/property-list/property-list.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,17 @@ import { FooterComponent } from './components/footer/footer.component';
     HeroComponent,
     AboutComponent,
     FeaturesComponent,
-    FooterComponent
+    FooterComponent,
+    PropertyFormComponent,
+    PropertyListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

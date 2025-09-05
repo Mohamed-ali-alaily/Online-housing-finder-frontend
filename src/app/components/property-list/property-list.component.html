@@ -1,0 +1,10 @@
+<div *ngFor="let property of properties" class="property-card">
+  <h3>{{ property.title }}</h3>
+  <p>💰 {{ property.price }} EGP</p>
+  <p>📍 {{ property.location }}</p>
+  <p>{{ property.description }}</p>
+
+  <button [routerLink]="['/edit', property._id]">Edit</button>
+  <button (click)="deleteProperty(property._id)">Delete</button>
+  <button [routerLink]="['/property', property._id]">View</button>
+</div>
