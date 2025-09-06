@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { PropertyListComponent } from './components/property-list/property-list.component';
-import { PropertyFormComponent } from './components/property-form/property-form.component';
+import { AddPropertyComponent } from './components/Add-property/add-property.component';
+
+
 
 const routes: Routes = [
-  { path: '', component: PropertyListComponent }, 
-  { path: 'add-property', component: PropertyFormComponent },
-  { path: 'edit/:id', component: PropertyFormComponent },
-  { path: 'property', component: PropertyListComponent },
-  { path: 'delete/:id', component: PropertyListComponent },
-  { path: '**', redirectTo: '' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'properties', component: PropertyListComponent },
+  { path: 'add', component: AddPropertyComponent },          // إضا },     // تعديل عقار
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

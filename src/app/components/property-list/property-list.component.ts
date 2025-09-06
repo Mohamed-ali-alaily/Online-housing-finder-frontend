@@ -1,47 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../models/property.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-property-list',
-  templateUrl: './property-list.component.html',
-  styleUrls: ['./property-list.component.css']
+  templateUrl: './property-list.component.html'
 })
 export class PropertyListComponent implements OnInit {
   properties: Property[] = [];
-  loading: boolean = true;
-  error: string = '';
+  error = '';
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: PropertyService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.getAllProperties();
+  ngOnInit() {
+    this.loadProperties();
   }
 
-  getAllProperties(): void {
+  loadProperties() {
     this.propertyService.getProperties().subscribe({
-      next: (data) => {
-        this.properties = data;
-        this.loading = false;
-      },
-      error: (err: any) => {
-        this.error = err;
-        this.loading = false;
-      }
+      next: data => this.properties = data,
+      error: err => this.error = 'Failed to load properties'
     });
   }
 
-  deleteProperty(id?: string): void {
-    if (!id) return;
-    if (confirm('Are you sure you want to delete this property?')) {
-      this.propertyService.deleteProperty(id).subscribe({
-        next: () => {
-          this.properties = this.properties.filter(p => p._id !== id);
-        },
-        error: (err) => {
-          this.error = err;
-        }
-      });
-    }
+  editProperty(id: string) {
+    this.router.navigate(['/add', id]);
+  }
+
+  deleteProperty(id: string) {
+    if (!confirm('Are you sure you want to delete this property?')) return;
+
+    this.propertyService.deleteProperty(id).subscribe({
+      next: () => this.loadProperties(),
+      error: err => this.error = 'Failed to delete property'
+    });
   }
 }

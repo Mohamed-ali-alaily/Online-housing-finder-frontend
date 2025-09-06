@@ -7,26 +7,27 @@ import { Property } from '../models/property.model';
   providedIn: 'root'
 })
 export class PropertyService {
-  private apiUrl = 'http://localhost:5000/api/properties'; 
+  private baseUrl = 'http://localhost:5000/api/properties';
+
   constructor(private http: HttpClient) {}
 
-  getPropertyById(id: string) {
-  return this.http.get<Property>(`${this.apiUrl}/${id}`);
-}
   getProperties(): Observable<Property[]> {
-    return this.http.get<Property[]>(this.apiUrl);
+    return this.http.get<Property[]>(this.baseUrl);
   }
 
-updateProperty(id: string, property: Property) {
-  return this.http.put<Property>(`${this.apiUrl}/${id}`, property);
-}
+  getProperty(id: string): Observable<Property> {
+    return this.http.get<Property>(`${this.baseUrl}/${id}`);
+  }
 
-createProperty(property: Property) {
-  return this.http.post<Property>(this.apiUrl, property);
-}
+  addProperty(property: Property): Observable<Property> {
+    return this.http.post<Property>(this.baseUrl, property);
+  }
 
+  updateProperty(id: string, property: Property): Observable<Property> {
+    return this.http.put<Property>(`${this.baseUrl}/${id}`, property);
+  }
 
   deleteProperty(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

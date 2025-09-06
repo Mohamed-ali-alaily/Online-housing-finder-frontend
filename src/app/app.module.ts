@@ -10,8 +10,12 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PropertyFormComponent } from './components/property-form/property-form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
+import {AddPropertyComponent} from './components/Add-property/add-property.component';
 import { PropertyListComponent } from './components/property-list/property-list.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +25,11 @@ import { PropertyListComponent } from './components/property-list/property-list.
     AboutComponent,
     FeaturesComponent,
     FooterComponent,
-    PropertyFormComponent,
-    PropertyListComponent
+    NavbarComponent,
+    AddPropertyComponent,
+    PropertyListComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

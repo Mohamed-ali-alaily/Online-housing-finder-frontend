@@ -1,0 +1,23 @@
+<div class="add-property-page">
+  <h2>{{ isEdit ? 'Edit' : 'Add' }} Property</h2>
+  <form (ngSubmit)="submit()">
+    <div>
+      <label>Title</label>
+      <input [(ngModel)]="property.title" name="title" required />
+    </div>
+    <div>
+      <label>Description</label>
+      <textarea [(ngModel)]="property.description" name="description" required></textarea>
+    </div>
+    <div>
+      <label>Price</label>
+      <input type="number" [(ngModel)]="property.price" name="price" required />
+    </div>
+    <div>
+      <label>Location</label>
+      <input [(ngModel)]="property.location" name="location" required />
+    </div>
+    <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </form>
+</div>

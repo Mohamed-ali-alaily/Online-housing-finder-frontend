@@ -1,0 +1,56 @@
+<div class="signup-page">
+  <div class="overlay">
+    <div class="logo">
+      Sign Up 🏠
+    </div>
+
+    <!-- الفورم مربوط بـ submit() -->
+    <form (ngSubmit)="submit()">
+
+      <!-- الاسم الأول والاسم الأخير -->
+      <div class="row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" placeholder="Enter your first name"
+                 [(ngModel)]="firstName" name="firstName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" type="text" placeholder="Enter your last name"
+                 [(ngModel)]="lastName" name="lastName" required />
+        </div>
+      </div>
+
+      <!-- البريد الإلكتروني -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Enter your email"
+               [(ngModel)]="email" name="email" required />
+      </div>
+
+      <!-- كلمة المرور -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter password"
+               [(ngModel)]="password" name="password" required />
+      </div>
+
+      <!-- تأكيد كلمة المرور -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" placeholder="Confirm password"
+               [(ngModel)]="confirmPassword" name="confirmPassword" required />
+      </div>
+
+      <!-- زر التسجيل -->
+      <button type="submit">Sign Up</button>
+
+      <!-- رسالة الخطأ -->
+      <p class="error" *ngIf="error">{{ error }}</p>
+
+      <!-- رابط تسجيل الدخول -->
+      <p>Already have an account? <a routerLink="/login">Login</a></p>
+    </form>
+  </div>
+</div>

@@ -1,10 +1,11 @@
-<div *ngFor="let property of properties" class="property-card">
-  <h3>{{ property.title }}</h3>
-  <p>💰 {{ property.price }} EGP</p>
-  <p>📍 {{ property.location }}</p>
-  <p>{{ property.description }}</p>
-
-  <button [routerLink]="['/edit', property._id]">Edit</button>
-  <button (click)="deleteProperty(property._id)">Delete</button>
-  <button [routerLink]="['/property', property._id]">View</button>
+<div class="property-list">
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngFor="let property of properties" class="property-card">
+    <h3>{{ property.title }}</h3>
+    <p>{{ property.description }}</p>
+    <p>💰 {{ property.price }} EGP</p>
+    <p>📍 {{ property.location }}</p>
+    <button (click)="editProperty(property._id!)">Edit</button>
+    <button (click)="deleteProperty(property._id!)">Delete</button>
+  </div>
 </div>
