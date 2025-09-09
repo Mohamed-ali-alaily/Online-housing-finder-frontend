@@ -1,23 +1,39 @@
-<div class="add-property-page">
-  <h2>{{ isEdit ? 'Edit' : 'Add' }} Property</h2>
-  <form (ngSubmit)="submit()">
-    <div>
-      <label>Title</label>
-      <input [(ngModel)]="property.title" name="title" required />
-    </div>
-    <div>
-      <label>Description</label>
-      <textarea [(ngModel)]="property.description" name="description" required></textarea>
-    </div>
-    <div>
-      <label>Price</label>
-      <input type="number" [(ngModel)]="property.price" name="price" required />
-    </div>
-    <div>
-      <label>Location</label>
-      <input [(ngModel)]="property.location" name="location" required />
-    </div>
-    <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
-    <p class="error" *ngIf="error">{{ error }}</p>
-  </form>
-</div>
+<form (ngSubmit)="submit()" enctype="multipart/form-data">
+  <div>
+    <label>Title</label>
+    <input type="text" [(ngModel)]="property.title" name="title" required />
+  </div>
+
+  <div>
+    <label>Location</label>
+    <input type="text" [(ngModel)]="property.location" name="location" required />
+  </div>
+
+  <div>
+    <label>Description</label>
+    <textarea [(ngModel)]="property.description" name="description"></textarea>
+  </div>
+
+  <div>
+    <label>Price</label>
+    <input type="number" [(ngModel)]="property.price" name="price" required />
+  </div>
+
+  <div>
+    <label>Phone</label>
+    <input type="text" [(ngModel)]="property.phone" name="phone" required />
+  </div>
+
+  <div>
+    <label>Image</label>
+    <input type="file" (change)="onFileSelected($event)" />
+  </div>
+   <div *ngIf="property.image">
+    <img *ngIf="property.image" [src]="'http://localhost:5000/uploads/' + property.image" alt="property">
+
+         style="max-width: 200px; margin-top: 10px; border: 1px solid #ab0f0f;" />
+  </div>
+
+
+  <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
+</form>

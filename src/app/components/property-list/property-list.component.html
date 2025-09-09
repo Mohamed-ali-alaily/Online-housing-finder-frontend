@@ -1,11 +1,17 @@
+<!-- src/app/components/property-list/property-list.component.html -->
 <div class="property-list">
-  <div *ngIf="error" class="error">{{ error }}</div>
+  <h2>Properties</h2>
   <div *ngFor="let property of properties" class="property-card">
     <h3>{{ property.title }}</h3>
-    <p>{{ property.description }}</p>
-    <p>💰 {{ property.price }} EGP</p>
-    <p>📍 {{ property.location }}</p>
-    <button (click)="editProperty(property._id!)">Edit</button>
+    <p><strong>Location:</strong> {{ property.location }}</p>
+    <p><strong>Description:</strong> {{ property.description }}</p>
+    <p><strong>Price:</strong> {{ property.price }} EGP</p>
+    <p><strong>Phone:</strong> {{ property.phone }}</p>
+    <div *ngIf="property.image">
+      <img [src]="'http://localhost:5000/uploads/' + property.image" alt="property" style="max-width: 200px; border: 1px solid #ab0f0f;" />
+    </div>
+
+    <button [routerLink]="['/add', property._id]">Edit</button>
     <button (click)="deleteProperty(property._id!)">Delete</button>
   </div>
 </div>

@@ -10,12 +10,12 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 import {AddPropertyComponent} from './components/Add-property/add-property.component';
 import { PropertyListComponent } from './components/property-list/property-list.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +25,11 @@ import { LoginComponent } from './components/login/login.component';
     AboutComponent,
     FeaturesComponent,
     FooterComponent,
-    NavbarComponent,
     AddPropertyComponent,
     PropertyListComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

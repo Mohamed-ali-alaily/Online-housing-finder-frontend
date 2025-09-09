@@ -1,0 +1,40 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <h2>Dashboard</h2>
+    <ul>
+      <li><a routerLink="/dashboard">Properties</a></li>
+      <!-- Add more links if needed -->
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <h2>{{ isEdit ? 'Edit Property' : 'Add New Property' }}</h2>
+    
+    <form (ngSubmit)="submit()" enctype="multipart/form-data">
+      <input type="text" [(ngModel)]="property.title" name="title" placeholder="Title" required />
+      <input type="text" [(ngModel)]="property.location" name="location" placeholder="Location" required />
+      <textarea [(ngModel)]="property.description" name="description" placeholder="Description"></textarea>
+      <input type="number" [(ngModel)]="property.price" name="price" placeholder="Price" required />
+      <input type="text" [(ngModel)]="property.phone" name="phone" placeholder="Phone" required />
+      <input type="file" (change)="onFileSelected($event)" />
+      <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
+    </form>
+
+    <h2>Property List</h2>
+    <div *ngFor="let property of properties" class="property-card">
+      <h3>{{ property.title }}</h3>
+      <p><strong>Location:</strong> {{ property.location }}</p>
+      <p><strong>Description:</strong> {{ property.description }}</p>
+      <p><strong>Price:</strong> {{ property.price }} EGP</p>
+      <p><strong>Phone:</strong> {{ property.phone }}</p>
+      <div *ngIf="property.image">
+        <img [src]="'http://localhost:5000/uploads/' + property.image" alt="property" />
+      </div>
+
+      <div *ngIf="isAdmin">
+        <button (click)="editProperty(property)">Edit</button>
+        <button (click)="deleteProperty(property._id!)">Delete</button>
+      </div>
+    </div>
+  </main>
+</div>
