@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private propertyService: PropertyService,
-    public authService: AuthService // public عشان نقدر نستخدمه في HTML
+    public authService: AuthService 
   ) {}
 
   ngOnInit(): void {
@@ -67,7 +67,6 @@ export class DashboardComponent implements OnInit {
     this.selectedFile = null;
   }
 
-  // Helper للتأكد إذا المستخدم Admin
   get isAdmin(): boolean {
     return this.authService.userRole === 'admin';
   }

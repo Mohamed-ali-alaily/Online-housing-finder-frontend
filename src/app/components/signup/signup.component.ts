@@ -29,6 +29,7 @@ export class SignupComponent {
     this.error = "Passwords do not match";
     return;
   }
+  
 
   this.loading = true;
   this.authService.signup({
@@ -42,6 +43,7 @@ export class SignupComponent {
       this.loading = false;
       this.router.navigate(['/login']);
     },
+    
     error: err => {
       this.loading = false;
       this.error = err.error?.message || "Signup failed";

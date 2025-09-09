@@ -11,23 +11,18 @@ import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  // 🟢 Dashboard (Admin/User Panel)
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
-  // 🏠 Public Pages
   { path: 'about', component: AboutComponent },
   { path: 'features', component: FeaturesComponent },
 
-  // 🏠 Properties
   { path: 'properties', component: PropertyListComponent, canActivate: [AuthGuard] },
   { path: 'add-property', component: AddPropertyComponent, canActivate: [AuthGuard] },
   { path: 'add/:id', component: AddPropertyComponent, canActivate: [AuthGuard] }, // للتعديل
 
-  // 🔐 Auth Pages
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 
-  // 🟢 Redirects
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

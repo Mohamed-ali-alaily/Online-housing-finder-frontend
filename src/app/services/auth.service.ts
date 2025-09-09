@@ -71,6 +71,15 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
+  get isAdmin(): boolean {
+    return this.currentUser?.role === 'admin';
+  }
+  
+
+  get isUser(): boolean {
+    return this.currentUser?.role === 'user';
+  }
+
   get userName(): string {
     if (!this.currentUser) return '';
     return `${this.currentUser.firstName} ${this.currentUser.lastName}`;

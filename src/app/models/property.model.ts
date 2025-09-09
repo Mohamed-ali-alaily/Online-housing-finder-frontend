@@ -1,4 +1,3 @@
-// src/app/models/property.model.ts
 export interface Property {
   _id?: string;
   title: string;
@@ -6,5 +5,5 @@ export interface Property {
   description: string;
   price: number;
   phone: string;
-  image?: string; // 👈 خليها اختيارية
+  image?: string; 
 }
